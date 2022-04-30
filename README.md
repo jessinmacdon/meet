@@ -40,7 +40,7 @@ And the details are expanded
 ## **Feature 3: As a user, I should be able to use the app offline so that I can see events viewed the last time I was online**
 
 ### Scenario 1: Show cached data when there’s no internet connection (when the user is offline)
-- *Given* the app is accessed offline
+- *Given* the app has been recently accessed online
 - *When* the user accesses the app while offline
 - *Then* the events they viewed when they were previously online will be shown
 
