@@ -6,59 +6,54 @@ upcoming events.
 
 User Stories
 
-## 1. As a user, I want to be able to click on an event so that I will be able to expand the event and reveal/see more detail about that event.
+## **Feature 1:  As a user, I want to be able to able to show/hide event details so that I can see more/less information about an event.** 
 
-### *Scenario 1: An event element is collapsed by default*
+### Scenario 1: An event element is collapsed by default
+- *Given* the main page is open
+- *When* the user searches for a city 
+and the events are loaded
+- *Then* the event details will be collapsed
 
-- Given a user is on the main page
-- When nothing is clicked
-- Then the event details will be collapsed
+### Scenario 2: The user can expand an event to see its details
+- *Given* the list of events have been loaded
+- *When* the user clicks show details for an event
+- *Then* the event will expand to show more details about that event
 
-### *Scenario 2: The user can expand an event to see its details*
+### Scenario 3: The user can collapse an event to hide its details
+- *Given* the show details button of an event has been clicked
+And the details are expanded
+- *When* the user clicks on “hide details”
+- *Then* the expanded detail will collapse to hide details
 
-- Given a user wants to see more details about a specific event
-- When the user clicks on an event
-- Then the event expands for more detail
+## **Feature 2:  As a user, I should be able to specify the number of events I will like to see in the app so that I can see more or fewer events in the list at a time**
 
-### *Scenario 3: The user can collapse an event to hide its details*
+### Scenario 1: When the user hasn’t specified a number, 32 is the default number
+- *Given* a city has been selected
+- *When* the user doesn’t specify the number of events they want to view on a page
+- *Then* 32 events will be shown by default
 
-- Given a user wants to collapse the extra detail of an event
-- When the user clicks on expanded detail
-- Then the expanded detail will collapse to see less detail
+### Scenario 2: Users can change the number of events they want to see
+- *Given* a city has been selected
+- *When* the user types in the desired number of events into the “number of events” box
+- *Then* the desired number of events will be loaded for the respective city
 
-## 2.  As a user, I should be able to choose the number of events that I want to see so that I can manage the number of events on my screen
+## **Feature 3: As a user, I should be able to use the app offline so that I can see events viewed the last time I was online**
 
-### *Scenario 1: When the user hasn’t specified a number, 32 is the default number*
-
-- Given a user has not chosen the number of events
-- When the user opens the page
-- Then the user will see (be shown) 32 events by default
-
-### *Scenario 2: Users can change the number of events they want to see*
-
-- Given the user wants to change the number of events they see
-- When the user clicks on the dropdown
-- Then the user will be able to choose the number of events that they want to see at a time.
-
-## 3. As a user, I should be able to use the app offline (even when I am not connected to the internet)
-
-### *Scenario 1: Show cached data when there’s no internet connection (when the user is offline)*
-
-- Given the user is not connected to the internet
-- When the user opens the app and has access to cashed data
-- Then the user will still have access to the data
+### Scenario 1: Show cached data when there’s no internet connection (when the user is offline)
+- *Given* the app is accessed offline
+- *When* the user accesses the app while offline
+- *Then* the events they viewed when they were previously online will be shown
 
 
-### *Scenario 2: Show error when the user changes the settings (city, time range)*
+### Scenario 2: Show error when the user changes the settings (city, time range)
+- *Given* the app is accessed offline
+- *When* the user makes changes to settings like city or time-range
+- *Then* tan error message will be shown
 
-- Given the user is not connected to the internet/has no internet connection
-- When the user wants to change the information shown above
-- Then the user will get an error message
+## **Feature 4: As a user, I should be able to see a chart showing the upcoming events in each city so that I know what events are organized in which city.**
 
-## 4. As a user, I should be able to see a chart showing the upcoming events by dates in each city, I can quickly find events in my time range of choice
+### Scenario 1: Show a chart with the number of upcoming events in each city
+- *Given* a city has been selected
+- *When* the list of events is shown
+- *Then* on top of the list, a chart that shows the type of upcoming events will be displayed
 
-### *Scenario 1: Show a chart with the number of upcoming events in each city*
-
-- Given the user is on the main page
-- When the user wants to find upcoming events
-- Then the user will see a chart of date events in each city
