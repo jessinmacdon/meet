@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 
 class Event extends Component {
-    constructor() {
-        super();
-        this.state = {
-            collapsed: true
-        }
-    }
+    state = {
+        collapsed: true,
+    };
+
 
     handleClick = () => {
         this.setState({

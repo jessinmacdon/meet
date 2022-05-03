@@ -3,14 +3,18 @@ import { shallow } from 'enzyme';
 import CitySearch from '../CitySearch';
 import { mockData } from '../mock-data';
 import { extractLocations } from '../api';
-import testUtils from 'react-dom/test-utils';
+//import testUtils from 'react-dom/test-utils';
 
 describe('<CitySearch /> component', () => {
 
     let locations, CitySearchWrapper;
     beforeAll(() => {
         locations = extractLocations(mockData);
-        CitySearchWrapper = shallow(<CitySearch locations={locations} />);
+        CitySearchWrapper = shallow(
+            <CitySearch
+                locations={locations}
+                updateEvents={() => { }}
+            />);
     });
 
     test('render text input', () => {
@@ -64,5 +68,32 @@ describe('<CitySearch /> component', () => {
         const suggestions = CitySearchWrapper.state('suggestions');
         CitySearchWrapper.find('.suggestions li').at(0).simulate('click');
         expect(CitySearchWrapper.state("query")).toBe(suggestions[0]);
+    });
+
+    test("show event suggestions list", () => {
+        CitySearchWrapper.setState({
+            showSuggestions: true,
+        });
+        expect(CitySearchWrapper.find(".suggestions")).toHaveLength(1);
+    });
+
+    test("selecting CitySearch input reveals the suggestions list", () => {
+        CitySearchWrapper.find(".city").simulate("focus");
+        expect(CitySearchWrapper.state("showSuggestions")).toBe(true);
+        expect(CitySearchWrapper.find(".suggestions").prop("style")).not.toEqual({
+            display: "none",
+        });
+    });
+
+    test("selecting a suggestion should hide the suggestions list", () => {
+        CitySearchWrapper.setState({
+            query: "Berlin",
+            showSuggestions: undefined,
+        });
+        CitySearchWrapper.find(".suggestions li").at(0).simulate("click");
+        expect(CitySearchWrapper.state("showSuggestions")).toBe(false);
+        expect(CitySearchWrapper.find(".suggestions").prop("style")).toEqual({
+            display: "none",
+        });
     });
 });
