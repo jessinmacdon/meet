@@ -8,6 +8,12 @@ export const extractLocations = (events) => {
   return locations;
 };
 
+/*
+export const getEvents = async () => {
+  return mockData;
+};
+*/
+
 const checkToken = async (accessToken) => {
   const result = await fetch(
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
@@ -74,6 +80,7 @@ export const getEvents = async () => {
   }
 };
 
+
 export const getAccessToken = async () => {
   const accessToken = localStorage.getItem("access_token");
   const tokenCheck = accessToken && (await checkToken(accessToken));
@@ -93,5 +100,4 @@ export const getAccessToken = async () => {
   }
   return accessToken;
 };
-
 

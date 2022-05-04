@@ -4,13 +4,31 @@ import './nprogress.css';
 import EventList from "./EventList";
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
-import { extractLocations, getEvents, checkToken, getAccessToken } from "./api";
+import { extractLocations, getEvents } from "./api";
 
 class App extends Component {
   state = {
     events: [],
     locations: [],
     numberOfEvents: 32,
+    location: "all",
+  };
+
+  updateEvents = (location, eventCount) => {
+    this.mounted = true;
+    getEvents().then((events) => {
+      const locationEvents =
+        location === "all" ? events : events.filter((event) => event.location === location);
+      const eventNumberFilter =
+        eventCount > locationEvents.length ? 
+        locationEvents : locationEvents.slice(0, eventCount);
+      if (this.mounted) {
+        this.setState({
+          events: locationEvents,
+          numberOfEvents: eventCount,
+        });
+      }
+    });
   };
 
   componentDidMount() {
@@ -29,45 +47,19 @@ class App extends Component {
     this.mounted = false;
   }
 
-  updateNumberOfEvents = (numberOfEvents) => {
-    this.setState(
-      {
-        numberOfEvents,
-      },
-      this.updateEvents(this.state.location, numberOfEvents)
-    );
-  };
-
-  updateEvents = (location, eventCount) => {
-    getEvents().then((events) => {
-      const locationEvents =
-        location === "all"
-          ? events
-          : events.filter((event) => event.location === location);
-      if (this.mounted) {
-        this.setState({
-          events: locationEvents.slice(0, this.state.numberOfEvents),
-          currentLocation: location,
-        });
-      }
+  updateEventNumbers = (eventNumbers) => {
+    this.setState({
+      numberOfEvents: eventNumbers,
     });
+    this.updateEvents(this.state.location, eventNumbers);
   };
 
   render() {
-    const { events, locations, numberOfEvents } = this.state;
     return (
       <div className="App">
-        <CitySearch
-          locations={locations}
-          numberOfEvents={numberOfEvents}
-          updateEvents={this.updateEvents}
-        />
-        <NumberOfEvents
-          updateNumberOfEvents={(number) => {
-            this.updateNumberOfEvents(number);
-          }}
-        />
-        <EventList events={events} numberOfEvents={numberOfEvents} />
+        <NumberOfEvents updateEventNumbers={this.updateEventNumbers} />
+        <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
+        <EventList events={this.state.events} />
       </div>
     );
   }

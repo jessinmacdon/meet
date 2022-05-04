@@ -6,7 +6,19 @@ class CitySearch extends Component {
         suggestions: [],
         showSuggestions: undefined,
     };
-    handleInputChanged = (event) => {
+
+  handleInputChanged = (event) => {
+    const value = event.target.value;
+    const suggestions = this.props.locations.filter((location) => {
+      return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
+    });
+    this.setState({
+      query: value,
+      suggestions,
+    });
+  };
+  
+   /* handleInputChanged = (event) => {
         const value = event.target.value;
         this.setState({ showSuggestions: true });
         const suggestions = this.props.locations.filter((location) => {
@@ -15,6 +27,7 @@ class CitySearch extends Component {
         if (suggestions.length === 0) {
             this.setState({
                 query: value,
+                suggestions,
             });
         } else {
             return this.setState({
@@ -22,7 +35,7 @@ class CitySearch extends Component {
                 suggestions,
             });
         }
-    };
+    };*/
 
     handleItemClicked = (suggestion) => {
         this.setState({

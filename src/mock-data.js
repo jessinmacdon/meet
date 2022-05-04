@@ -82,6 +82,6 @@ const mockData = [
 ];
 
 //converts JSON syntax to JavaScript syntax 
-JSON.parse(JSON.stringify(mockData));
+//JSON.parse(JSON.stringify(mockData));
 
 export { mockData };
