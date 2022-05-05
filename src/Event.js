@@ -36,8 +36,7 @@ class Event extends Component {
 
                 {!collapsed && (
                     <div
-                        className={`extra-details ${this.state.collapsed ? "hide" : "show"
-                            }`}
+                        className={`extra-details ${this.state.collapsed ? "hide" : "show" }`}
                     >
                         <h3>About this event:</h3>
                         <a href={event.htmlLink} rel="noreferrer" target="_blank">

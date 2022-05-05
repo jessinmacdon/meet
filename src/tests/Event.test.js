@@ -59,4 +59,14 @@ describe("<EventList /> component", () => {
         EventWrapper.find(".details-button").simulate("click");
         expect(EventWrapper.state("collapsed")).toBe(true);
     });
+
+/*
+     test("Extra details are shown when the show details button is clicked", () => {
+         EventWrapper.setState({
+            collapsed: false,
+        });
+        EventWrapper.find(".details-button").simulate("click");
+       expect(EventWrapper.find(".extra-details").hasClass('show')).toBe(true);
+    });
+*/
 });

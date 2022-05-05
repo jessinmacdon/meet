@@ -56,8 +56,7 @@ class CitySearch extends Component {
                     className="city"
                     value={this.state.query}
                     onChange={this.handleInputChanged}
-                    onFocus={() => {
-                        this.setState({ showSuggestions: true });
+                    onFocus={() => {this.setState({ showSuggestions: true });
                     }}
                 />
                 <ul
