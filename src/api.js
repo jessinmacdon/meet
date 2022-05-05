@@ -9,10 +9,15 @@ export const extractLocations = (events) => {
 };
 
 /*
+// getEvents from mockData
 export const getEvents = async () => {
   return mockData;
 };
 */
+
+
+// ++ untested code ++ //
+// get authenticated process - real api calls
 
 const checkToken = async (accessToken) => {
   const result = await fetch(
@@ -101,3 +106,4 @@ export const getAccessToken = async () => {
   return accessToken;
 };
 
+// ** end of untested code ** //
