@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { InfoAlert } from './Alert';
 
 class CitySearch extends Component {
     state = {
@@ -7,40 +8,30 @@ class CitySearch extends Component {
         showSuggestions: undefined,
     };
 
-  handleInputChanged = (event) => {
-    const value = event.target.value;
-    const suggestions = this.props.locations.filter((location) => {
+    handleInputChanged = (event) => {
+        const value = event.target.value;
+        const suggestions = this.props.locations.filter((location) => {
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
     });
-    this.setState({
-      query: value,
-      suggestions,
-    });
-  };
-  
-   /* handleInputChanged = (event) => {
-        const value = event.target.value;
-        this.setState({ showSuggestions: true });
-        const suggestions = this.props.locations.filter((location) => {
-            return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
+    if (suggestions.length === 0) {
+      this.setState({
+        query: value,
+        infoText: 'Please check your input or try another city.',
+      });
+    } else {
+      return this.setState({
+        query: value,
+        suggestions,
+        infoText: ''
         });
-        if (suggestions.length === 0) {
-            this.setState({
-                query: value,
-                suggestions,
-            });
-        } else {
-            return this.setState({
-                query: value,
-                suggestions,
-            });
-        }
-    };*/
+    }
+  };
 
     handleItemClicked = (suggestion) => {
         this.setState({
             query: suggestion,
             showSuggestions: false,
+            infoText: "",
         });
         this.props.updateEvents(suggestion, 0);
     };
@@ -48,9 +39,8 @@ class CitySearch extends Component {
     render() {
         return (
             <div className="CitySearch">
-                <br />
-                <p>Select a City:</p>
-                <br />
+                <label>Select a City:</label>
+                <InfoAlert className="CitySearchAlert" text={this.state.infoText} />
                 <input
                     type="text"
                     className="city"
