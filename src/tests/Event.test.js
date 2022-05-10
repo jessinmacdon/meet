@@ -60,13 +60,19 @@ describe("<EventList /> component", () => {
         expect(EventWrapper.state("collapsed")).toBe(true);
     });
 
-/*
      test("Extra details are shown when the show details button is clicked", () => {
+         EventWrapper.setState({
+            collapsed: true,
+        });
+        EventWrapper.find(".details-button").simulate("click");
+        expect(EventWrapper.find(".extra-details").hasClass('show')).toBe(true);
+    });
+    
+    test("Extra details are shown when the show details button is clicked2", () => {
          EventWrapper.setState({
             collapsed: false,
         });
         EventWrapper.find(".details-button").simulate("click");
-       expect(EventWrapper.find(".extra-details").hasClass('show')).toBe(true);
+        expect(EventWrapper.find(".extra-details").hasClass('hide')).toBe(true);
     });
-*/
 });

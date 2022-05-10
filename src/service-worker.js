@@ -43,6 +43,7 @@ registerRoute(
 
     return true;
   },
+  console.log("&&&&&&", process.env.PUBLIC_URL)
   createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')
 );
 
