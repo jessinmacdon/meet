@@ -47,6 +47,7 @@ input[type="number"] {
   max-width: 300px;
   margin: auto;
   position: relative;
+  margin-bottom: 20px;
 }
 
 .suggestions {
