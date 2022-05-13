@@ -1,3 +1,5 @@
+![The Look an feel of the meet app](/src/img/meet-app.png "Meet")
+
 # Meet App
 ## Find the best events from around the world
 
