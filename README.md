@@ -21,7 +21,11 @@ All said, the meet app bring is built to reap the benefits of serverless achitec
 
 ---
 
-**Hosted on gh-pages: <https://jessinmacdon.github.io/meet>**
+**Hosted on gh-pages:**
+
+```
+<https://jessinmacdon.github.io/meet>
+```
 
 ---
 
