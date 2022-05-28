@@ -24,7 +24,7 @@ All said, the meet app bring is built to reap the benefits of serverless achitec
 **Hosted on gh-pages:**
 
 ```
-<https://jessinmacdon.github.io/meet>
+https://jessinmacdon.github.io/meet
 ```
 
 ---
@@ -124,4 +124,3 @@ And the details are expanded
 - *Given* a city has been selected
 - *When* the list of events is shown
 - *Then* on top of the list, a chart that shows the type of upcoming events will be displayed
-
