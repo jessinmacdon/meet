@@ -5,8 +5,8 @@
 ## Find the best events from around the world
 
 <p float="left">
-  <img src="src/img/mobile-look-1.png" width="300" />
-  <img src="src/img/mobile-look-2.png" width="300" /> 
+  <img src="src/img/mobile-look-1.png" width="330" />
+  <img src="src/img/mobile-look-2.png" width="330" /> 
 </p>
 
 ---
