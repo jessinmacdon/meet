@@ -1,11 +1,18 @@
-![The Look an feel of the meet app](/src/img/meet-app.png "Meet")
-
-# Meet App
-## Find the best events from around the world
+# The Meet App
 
 ---
 
-#### Meet is a React Application was created following a test-driven development (TDD) process. The main goal of the application is to utilise **test-driven development to build a ***serverless, progressive web application (PWA)***. The application uses the google calendar API to fetch and display upcoming events to the user. 
+## Find the best events from around the world
+
+<p float="left">
+  <img src="src/img/mobile-look-1.png" width="300" />
+  <img src="src/img/mobile-look-2.png" width="300" /> 
+</p>
+
+---
+## Description
+
+**Meet is a React Application was created following a test-driven development (TDD) process. The main goal of the application is to utilise *test-driven development to build a *serverless, progressive web application (PWA)*. The application uses the google calendar API to fetch and display upcoming events to the user.**
 
 ---
 
@@ -124,3 +131,12 @@ And the details are expanded
 - *Given* a city has been selected
 - *When* the list of events is shown
 - *Then* on top of the list, a chart that shows the type of upcoming events will be displayed
+
+---
+
+This is how the app will look on your desktop (larger screens)
+
+![The Look an feel of the meet app](/src/img/desktop-look-1.png "Meet")
+
+
+![The Look an feel of the meet app](/src/img/desktop-look-2.gif "Meet")
